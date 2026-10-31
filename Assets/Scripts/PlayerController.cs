@@ -6,26 +6,29 @@ using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpHeight = 5f;
+    public float moveSpeed = 5f; //speed at which the player moves. can be changed here or directly in unity
+    public float jumpHeight = 5f; //height the player can jump. can be changed here of directly in unity
+    public RaycastingScript groundRaycast; //allows for reading variables from raycasting script
+    Rigidbody2D rb; //creates variable for storing rigidbody component
+    bool isGrounded; //checks if the player is currently on the ground
+    bool canJump; //checks if the player is able to jump (taking into account coyote time
+    float coyoteTime = 0.15f; //the time for which the player can be off the ground while still being allowed to jump (somewhere between 0.1 and 0.2 seems like the sweet spot)
+    Vector2 moveDirection = Vector2.zero; //vector stores what direction the player should move
     public PlayerInputs playerControls;
-    private Rigidbody2D rb;
-    public bool isGrounded;
-    private Vector2 moveDirection = Vector2.zero;
-    private InputAction move;
-    private InputAction jump;
+    InputAction move; 
+    InputAction jump;
 
-    private void Awake()
+    void Awake()
     {
-        playerControls = new PlayerInputs();
+        playerControls = new PlayerInputs(); //allows for using new input system
     }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); // stores rigidbody component in rb
     }
 
-    private void OnEnable()
+    void OnEnable() //enables all movement binds. if any new ones are added they need to be added here
     {
         move = playerControls.Player.Move;
         move.Enable();
@@ -35,43 +38,47 @@ public class PlayerScript : MonoBehaviour
         jump.performed += Jump;
     }
 
-    private void OnDisable()
+    void OnDisable() //turns movement binds back off again. if any new ones are added they need to be here as well
     {
         move.Disable();
         jump.Disable();
     }
 
-    void Update()
+    void Update() //runs every frame
     {
+        isGrounded = groundRaycast.rayHit;
         moveDirection = move.ReadValue<Vector2>();
+        CalculateCanJump();
     }
 
-    private void FixedUpdate()
+    void CalculateCanJump() //uses raycast and coyote time to determine if the player can jump
+    {
+        if (isGrounded)
+        {
+            coyoteTime = 0.15f;
+            canJump = true;
+        }
+        else
+        {
+            coyoteTime -= Time.deltaTime;
+        }
+
+        if (coyoteTime < 0)
+        {
+            canJump = false;
+        }
+    }
+
+    void FixedUpdate() //runs every fixed frame, used for physics (movement mainly)
     {
         rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, rb.linearVelocityY);
 
     }
-    private void Jump(InputAction.CallbackContext context)
+    void Jump(InputAction.CallbackContext context) //runs when the Jump keybind is pressed
     {
-        if (isGrounded)
+        if (canJump)
         {
             rb.linearVelocityY = jumpHeight;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
         }
     }
 }
