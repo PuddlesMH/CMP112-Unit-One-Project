@@ -1,7 +1,4 @@
-using Mono.Cecil;
-using System;
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
