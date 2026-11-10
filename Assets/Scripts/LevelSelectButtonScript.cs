@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class LevelSelectButtonScript : MonoBehaviour
 {
     public Button LevelOneButton, LevelTwoButton, LevelThreeButton, LevelFourButton, LevelFiveButton, LevelSelectButton, MainMenuButton, ExitButton;
-    private void Start()
-    {
+    private void Start() { //each button is set to return a different value
         LevelOneButton.onClick.AddListener(delegate { LoadLevel(1); }) ;
         LevelTwoButton.onClick.AddListener(delegate { LoadLevel(2); });
         LevelThreeButton.onClick.AddListener(delegate { LoadLevel(3); });
@@ -18,10 +17,8 @@ public class LevelSelectButtonScript : MonoBehaviour
         ExitButton.onClick.AddListener(delegate { LoadLevel(8); });
     }
 
-    public void LoadLevel(int _level)
-    {
-        switch(_level)
-        {
+    public void LoadLevel(int _level) { //depending on what button was pressed, loads a certain scene
+        switch(_level) {
             case 1: SceneManager.LoadScene("Level1"); break;
             case 2: SceneManager.LoadScene("Level2"); break;
             case 3: SceneManager.LoadScene("Level3"); break;
