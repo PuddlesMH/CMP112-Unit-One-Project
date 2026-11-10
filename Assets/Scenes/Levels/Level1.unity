@@ -266,7 +266,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1516730988701038964, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
       propertyPath: m_Name
-      value: Crate (1)
+      value: Crate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5914666005767988756, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.28401
       objectReference: {fileID: 0}
     - target: {fileID: 5914666005767988756, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -274,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5914666005767988756, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2929199
+      value: -1.0009
       objectReference: {fileID: 0}
     - target: {fileID: 5914666005767988756, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -359,7 +363,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000i
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -374,9 +378,6 @@ MonoBehaviour:
   m_ShadowSoftnessFalloffIntensity: 0.5
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
-  m_RenderingLayersMask:
-    serializedVersion: 0
-    m_Bits: 1
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
@@ -600,11 +601,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5914666005767988756, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.46
+      value: 3.94
       objectReference: {fileID: 0}
     - target: {fileID: 5914666005767988756, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.41
+      value: -1.31
       objectReference: {fileID: 0}
     - target: {fileID: 5914666005767988756, guid: 7fbe4fbb3069b144f88340619921f58a, type: 3}
       propertyPath: m_LocalPosition.z

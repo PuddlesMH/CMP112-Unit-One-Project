@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 1886054233603008309}
   - component: {fileID: 6110715018339261850}
   - component: {fileID: 1869410573416499655}
-  - component: {fileID: 3988883309288303104}
   - component: {fileID: 5631307075720205377}
+  - component: {fileID: 3988883309288303104}
   - component: {fileID: -8601173431322228629}
-  m_Layer: 0
+  - component: {fileID: -7476400637467392882}
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,21 +171,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &3988883309288303104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5049804487934278737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acfe258229fde8a4895b28f8c0c6be1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
-  moveSpeed: 5
-  jumpHeight: 10
-  groundRaycast: {fileID: -8601173431322228629}
 --- !u!114 &5631307075720205377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,6 +201,22 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &3988883309288303104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5049804487934278737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acfe258229fde8a4895b28f8c0c6be1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScript
+  moveSpeed: 5
+  jumpHeight: 10
+  groundRaycast: {fileID: -8601173431322228629}
+  swapRaycast: {fileID: -7476400637467392882}
 --- !u!114 &-8601173431322228629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,5 +229,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e55af729cb6d804185508e8a06dae04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RaycastingScript
-  rayDistance: 0.75
-  rayHit: 0
+--- !u!114 &-7476400637467392882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5049804487934278737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7c400049247a84caf5af4032eaabda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SwapRaycastingScript
