@@ -47,6 +47,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     void Update() {//runs every frame
+        CalculateCanJump();
         moveDirection = move.ReadValue<Vector2>();
         facingDirection = FindFacingDirection(moveDirection, facingDirection); 
         DrawSwapLine(); 
@@ -93,8 +94,9 @@ public class PlayerScript : MonoBehaviour
             coyoteTime -= Time.deltaTime;
         }
 
-        if (coyoteTime < 0) {
-            return false;
+        if (coyoteTime > 0)
+        {
+            return true;
         }
         return false;
     }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4712664090921500739}
   - component: {fileID: 2934681240805785579}
   - component: {fileID: 7713904404419280902}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LockedDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
