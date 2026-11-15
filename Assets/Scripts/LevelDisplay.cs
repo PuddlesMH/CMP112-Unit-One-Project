@@ -10,6 +10,6 @@ public class LevelDisplay : MonoBehaviour
     void Start()
     {
         string levelName = SceneManager.GetActiveScene().name;
-        levelText.text = "Level: " + levelName; 
+        levelText.text = levelName; 
     }
 }

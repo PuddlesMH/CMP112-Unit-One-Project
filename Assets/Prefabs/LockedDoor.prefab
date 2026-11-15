@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d5142c7374e2154696e25f1d9355480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::lockedDoorScript
-  keysRequired: 0
-  nextLevelName: Test_1
+  keysRequired: 1
+  nextLevelName: 
 --- !u!61 &7713904404419280902
 BoxCollider2D:
   m_ObjectHideFlags: 0
