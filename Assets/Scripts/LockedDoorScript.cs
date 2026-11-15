@@ -23,6 +23,7 @@ public class lockedDoorScript : MonoBehaviour
                 //Tells the win screen what the next level is for the next level button
                 WinMenu.nextLevel = nextLevelName;
                 SceneManager.LoadScene("WinMenu");
+                DeathZoneScript.lives = 3;
             }
             else
             {
