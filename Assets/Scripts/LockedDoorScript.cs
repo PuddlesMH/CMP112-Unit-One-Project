@@ -3,21 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class lockedDoorScript : MonoBehaviour
 {
-    public string nextLevel; //enter the next level to be sent to in the Inspector
-    public int keysRequired = 1; //enter the keys needed to unlock the door on this level, 1 is default
+  
+  //How much keys are required to unlock the door on that level
+    public int keysRequired = 1; 
+  // The next scene to proceed to after winning that level  
+    public string nextLevelName;
     
+    //When something comes into contact with the door
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player")) //runs if the player comes into contact with the door
+        //if the player was the one who came into contact
+        if (other.gameObject.CompareTag("Player"))
         {
+            //checks if the win condition is met
             if (KeyScript.keyCollect >= keysRequired)
             {
-                KeyScript.keyCollect = 0; //resets keys
-                SceneManager.LoadScene(nextLevel); //loads the next level to travel to
+                //resets keys the player has
+                KeyScript.keyCollect = 0; 
+                //Tells the win screen what the next level is for the next level button
+                WinMenu.nextLevel = nextLevelName;
+                SceneManager.LoadScene("WinMenu");
             }
             else
             {
-                Debug.Log("Door is locked, need " + keysRequired + " more keys"); //incase the player hasn't met the win condition
+                Debug.Log("Door is locked, need " + keysRequired + " more keys"); 
             }
         }
 
