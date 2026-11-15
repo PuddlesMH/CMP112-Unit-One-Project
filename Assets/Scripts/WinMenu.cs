@@ -19,7 +19,6 @@ public class WinMenu : MonoBehaviour
             NextLevelButton.onClick.AddListener(delegate { Options(1); });
         }
         
-       
         LevelSelectButton.onClick.AddListener(delegate { Options(2); });
         MainMenuButton.onClick.AddListener(delegate { Options(3); });
     }
